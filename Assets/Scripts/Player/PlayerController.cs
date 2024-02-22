@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour, IInitialize
     public void Initialize()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-
         _isFacingRight = true;
 
     }
