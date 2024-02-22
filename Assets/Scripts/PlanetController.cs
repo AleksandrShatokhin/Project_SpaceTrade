@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class PlanetController : MonoBehaviour, IInitialize<PlanetSO>
 {
+    [SerializeField] private SpriteRenderer _surface;
+
     private PlanetSO _planetSO;
 
     public void Initialize(PlanetSO planetSO)
     {
         _planetSO = planetSO;
 
-        GetComponent<SpriteRenderer>().sprite = _planetSO.SurfaceAppearance;
+        _surface.sprite = _planetSO.SurfaceAppearance;
     }
 }

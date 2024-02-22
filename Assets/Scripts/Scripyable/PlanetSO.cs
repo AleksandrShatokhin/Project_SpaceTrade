@@ -5,4 +5,6 @@ public class PlanetSO : ScriptableObject
 {
     public Sprite SpaceAppearance;
     public Sprite SurfaceAppearance;
+
+    [TextArea] public string Description;
 }
