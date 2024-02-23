@@ -19,13 +19,13 @@ public class PlanetController : MonoBehaviour, IInitialize<PlanetSO>
         foreach (Transform tree in _trees.transform)
         {
             int randomTree = Random.Range(0, _planetSO.Trees.Count);
-            tree.GetComponent<IInitialize<Sprite>>()?.Initialize(_planetSO.Trees[randomTree]);
+            tree.GetComponent<IInitialize<ItemSO>>()?.Initialize(_planetSO.Trees[randomTree]);
         }
 
         foreach (Transform stone in _stones.transform)
         {
             int randomStone = Random.Range(0, _planetSO.Stones.Count);
-            stone.GetComponent<IInitialize<Sprite>>()?.Initialize(_planetSO.Stones[randomStone]);
+            stone.GetComponent<IInitialize<ItemSO>>()?.Initialize(_planetSO.Stones[randomStone]);
         }
     }
 }

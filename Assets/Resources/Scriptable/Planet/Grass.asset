@@ -26,13 +26,13 @@ MonoBehaviour:
     \u0447\u0442\u043E\u0431\u044B \u043D\u0430\u0447\u0430\u0442\u044C \u043D\u043E\u0432\u0443\u044E
     \u0436\u0438\u0437\u043D\u044C \u0432\u043C\u0435\u0441\u0442\u0435."
   Trees:
-  - {fileID: 21300000, guid: 5e4320d3223600c4c8082f2abe725239, type: 3}
-  - {fileID: 21300000, guid: 0dc88319e8864f749b95cbbe243ddfdb, type: 3}
-  - {fileID: 21300000, guid: 5f29ba1c45c25f543a055d0f510edd8f, type: 3}
-  - {fileID: 21300000, guid: d5c5c66ebf7fa0543bcd2052f539ed5c, type: 3}
-  - {fileID: 21300000, guid: 98e3b85653a316d4283f8ebc8955229b, type: 3}
+  - {fileID: 11400000, guid: d886c8bc43e6afc48be07721f479e405, type: 2}
+  - {fileID: 11400000, guid: 842cce3e213188645a7f2ab5abad94ea, type: 2}
+  - {fileID: 11400000, guid: 0b560cacc2ddab749866800670c13db6, type: 2}
+  - {fileID: 11400000, guid: 6b474b686f535304e89ef4618227bead, type: 2}
+  - {fileID: 11400000, guid: dc6c65efc22aa88419a25abdf0adcfff, type: 2}
   Stones:
-  - {fileID: 21300000, guid: 8252bab5a04d4774288705a7053888c0, type: 3}
-  - {fileID: 21300000, guid: f516a6e11e516754a9886d386addc169, type: 3}
-  - {fileID: 21300000, guid: 721aa670f644278469f5ba3e78c1f8aa, type: 3}
-  - {fileID: 21300000, guid: 7427a86b132d1be40ba233b57af51c44, type: 3}
+  - {fileID: 11400000, guid: c08b9e06dd1bb04419a326b7e19b9f93, type: 2}
+  - {fileID: 11400000, guid: de3fb69d095711341891fd111a750783, type: 2}
+  - {fileID: 11400000, guid: 26f20e60b93af2e41975bca23f6fadc9, type: 2}
+  - {fileID: 11400000, guid: 8d0faff8ebd50fc4c970e9f799b9dcdd, type: 2}

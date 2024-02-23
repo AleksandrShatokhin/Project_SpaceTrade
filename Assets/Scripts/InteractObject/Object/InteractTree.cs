@@ -1,12 +1,16 @@
 using UnityEngine;
 
-public class InteractTree : ObjectBase, IInitialize<Sprite>
+public class InteractTree : ObjectBase, IInitialize<ItemSO>
 {
     [SerializeField] private SpriteRenderer _appearance;
 
-    public void Initialize(Sprite appearance)
+    private ItemSO _item;
+
+    public void Initialize(ItemSO item)
     {
-        _appearance.sprite = appearance;
+        _item = item;
+
+        _appearance.sprite = _item.MainAppearance;
     }
 
     public override void EnterInteract()
