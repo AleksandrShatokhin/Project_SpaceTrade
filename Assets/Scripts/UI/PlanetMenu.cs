@@ -11,18 +11,18 @@ public class PlanetMenu : MonoBehaviour, IInitialize<List<PlanetSO>>
     [SerializeField] private List<GameObject> _planets;
     [SerializeField] private GameObject _description;
 
-    public void Initialize(List<PlanetSO> planets)
+    public void Initialize(List<PlanetSO> planetsSO)
     {
         int counter = 0;
 
-        while (counter < _planets.Count || counter < planets.Count)
+        while (counter < _planets.Count && counter < planetsSO.Count)
         {
-            _planets[counter].GetComponent<IInitialize<PlanetSO>>()?.Initialize(planets[counter]);
+            _planets[counter].GetComponent<IInitialize<PlanetSO>>()?.Initialize(planetsSO[counter]);
             counter++;
         }
     }
 
-    public void OpenPlanet(PlanetSO planetSO)
+    public void GoToPlanet(PlanetSO planetSO)
     {
         GameController.Instance.SwitchWindow(this.gameObject, _planet, planetSO);
     }

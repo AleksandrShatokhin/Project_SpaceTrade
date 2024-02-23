@@ -6,6 +6,7 @@ public class PlanetController : MonoBehaviour, IInitialize<PlanetSO>
 {
     [SerializeField] private SpriteRenderer _surface;
     [SerializeField] private GameObject _trees;
+    [SerializeField] private GameObject _stones;
 
     private PlanetSO _planetSO;
 
@@ -19,6 +20,12 @@ public class PlanetController : MonoBehaviour, IInitialize<PlanetSO>
         {
             int randomTree = Random.Range(0, _planetSO.Trees.Count);
             tree.GetComponent<IInitialize<Sprite>>()?.Initialize(_planetSO.Trees[randomTree]);
+        }
+
+        foreach (Transform stone in _stones.transform)
+        {
+            int randomStone = Random.Range(0, _planetSO.Stones.Count);
+            stone.GetComponent<IInitialize<Sprite>>()?.Initialize(_planetSO.Stones[randomStone]);
         }
     }
 }

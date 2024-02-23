@@ -11,12 +11,13 @@ public class PlanetButton : MonoBehaviour, IInitialize<PlanetSO>, IPointerDownHa
     public void Initialize(PlanetSO planetSO)
     {
         _planetSO = planetSO;
+        gameObject.SetActive(true);
         _planetImage.sprite = _planetSO.SpaceAppearance;
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        GetComponentInParent<PlanetMenu>().OpenPlanet(_planetSO);
+        GetComponentInParent<PlanetMenu>().GoToPlanet(_planetSO);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

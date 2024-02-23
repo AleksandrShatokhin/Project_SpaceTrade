@@ -36,3 +36,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4c922d5f0e04a834a9e6e7acb78b32de, type: 3}
   - {fileID: 21300000, guid: 6c683a934c4d8af4faefbec54dafd3db, type: 3}
   - {fileID: 21300000, guid: 98844cb39e856904c885e443484da88f, type: 3}
+  Stones:
+  - {fileID: 21300000, guid: 6dd46403c0064524aa02afb867ad6801, type: 3}
+  - {fileID: 21300000, guid: 05a17c0f2123a9848b42511cc3bb5669, type: 3}
+  - {fileID: 21300000, guid: 8093969946bf30d408ce86bba4cc2d94, type: 3}
+  - {fileID: 21300000, guid: 67eaa346d79ffd142baedb86b84016fb, type: 3}

@@ -17,7 +17,6 @@ public class PlayerSword : MonoBehaviour
 
         foreach (Collider2D collider in colliders)
         {
-            Debug.Log(collider.gameObject.name);
             collider.GetComponent<IHealthable>()?.TakeDamage(_damage);
         }
     }

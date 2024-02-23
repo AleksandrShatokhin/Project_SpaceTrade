@@ -1,6 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractTree : ObjectBase, IInitialize<Sprite>
+public class InteractStone : ObjectBase, IInitialize<Sprite>
 {
     [SerializeField] private SpriteRenderer _appearance;
 

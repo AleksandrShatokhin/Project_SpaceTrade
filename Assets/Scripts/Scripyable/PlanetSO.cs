@@ -10,4 +10,5 @@ public class PlanetSO : ScriptableObject
     [TextArea] public string Description;
 
     public List<Sprite> Trees;
+    public List<Sprite> Stones;
 }
