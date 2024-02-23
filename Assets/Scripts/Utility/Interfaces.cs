@@ -15,6 +15,7 @@ public interface IInteractable
     void EnterInteract();
     void StayInteract(Transform transform);
     void ExitInteract();
+    void ActionInteract();
 }
 
 public interface IHealthable
@@ -25,4 +26,10 @@ public interface IHealthable
 public interface IDeathable
 {
     void Death();
+}
+
+public interface ISlotable
+{
+    ItemSO GetItem();
+    void Clear();
 }

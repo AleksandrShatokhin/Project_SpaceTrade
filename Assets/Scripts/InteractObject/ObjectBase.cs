@@ -1,8 +1,16 @@
 using UnityEngine;
 
-public abstract class ObjectBase : MonoBehaviour, IInteractable, IDeathable
+public abstract class ObjectBase : MonoBehaviour, IInteractable, IDeathable, IInitialize<ItemSO>
 {
-    [SerializeField] private GameObject _indicator;
+    [SerializeField] protected GameObject _indicator;
+    [SerializeField] protected SpriteRenderer _appearance;
+
+    protected ItemSO _item;
+
+    public virtual void Initialize(ItemSO item)
+    {
+        _item = item;
+    }
 
     public virtual void EnterInteract()
     {
@@ -26,8 +34,19 @@ public abstract class ObjectBase : MonoBehaviour, IInteractable, IDeathable
         _indicator.SetActive(false);
     }
 
+    public virtual void ActionInteract()
+    {
+
+    }
+
     public virtual void Death()
     {
         gameObject.SetActive(false);
+    }
+
+    protected virtual void CreatePickableItem(GameObject prefab)
+    {
+        GameObject item = Instantiate(prefab, transform.position, Quaternion.identity);
+        item.GetComponent<IInitialize<ItemSO>>()?.Initialize(_item);
     }
 }

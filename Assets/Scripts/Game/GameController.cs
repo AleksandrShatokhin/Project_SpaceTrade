@@ -12,11 +12,14 @@ public class GameController : Singleton<GameController>
     [SerializeField] private List<PlanetSO> _planets;
 
     [SerializeField] private PlanetMenu _planetMenuComponent;
+    [SerializeField] private PlayerInventory _playerInventory;
 
     private void Start()
     {
         _planetMenuComponent.gameObject.SetActive(true);
         _planetMenuComponent.Initialize(_planets);
+
+        _playerInventory.Initialize();
     }
 
     private void InitializePlayer()
@@ -36,5 +39,15 @@ public class GameController : Singleton<GameController>
             toOpen.GetComponent<IInitialize<PlanetSO>>()?.Initialize(planet);
             InitializePlayer();
         }
+    }
+
+    public void AddItemToInventory(ItemSO item)
+    {
+        _playerInventory.AddItem(item);
+    }
+
+    public void OpenInventory(bool value)
+    {
+        _playerInventory.gameObject.SetActive(value);
     }
 }

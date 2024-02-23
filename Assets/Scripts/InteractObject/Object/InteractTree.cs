@@ -1,15 +1,12 @@
 using UnityEngine;
 
-public class InteractTree : ObjectBase, IInitialize<ItemSO>
+public class InteractTree : ObjectBase
 {
-    [SerializeField] private SpriteRenderer _appearance;
+    [SerializeField] private GameObject _itemPrefab;
 
-    private ItemSO _item;
-
-    public void Initialize(ItemSO item)
+    public override void Initialize(ItemSO item)
     {
-        _item = item;
-
+        base.Initialize(item);
         _appearance.sprite = _item.MainAppearance;
     }
 
@@ -21,5 +18,11 @@ public class InteractTree : ObjectBase, IInitialize<ItemSO>
     public override void ExitInteract()
     {
 
+    }
+
+    public override void Death()
+    {
+        base.Death();
+        CreatePickableItem(_itemPrefab);
     }
 }
