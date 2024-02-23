@@ -25,3 +25,9 @@ MonoBehaviour:
     \u0442\u0440\u0430\u0432\u044F\u043D\u0438\u0441\u0442\u0443\u044E \u043F\u043B\u0430\u043D\u0435\u0442\u0443,
     \u0447\u0442\u043E\u0431\u044B \u043D\u0430\u0447\u0430\u0442\u044C \u043D\u043E\u0432\u0443\u044E
     \u0436\u0438\u0437\u043D\u044C \u0432\u043C\u0435\u0441\u0442\u0435."
+  Trees:
+  - {fileID: 21300000, guid: 5e4320d3223600c4c8082f2abe725239, type: 3}
+  - {fileID: 21300000, guid: 0dc88319e8864f749b95cbbe243ddfdb, type: 3}
+  - {fileID: 21300000, guid: 5f29ba1c45c25f543a055d0f510edd8f, type: 3}
+  - {fileID: 21300000, guid: d5c5c66ebf7fa0543bcd2052f539ed5c, type: 3}
+  - {fileID: 21300000, guid: 98e3b85653a316d4283f8ebc8955229b, type: 3}

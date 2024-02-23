@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3b3ff40764776469e53f618b082878, type: 3}
   m_Name: Moon
   m_EditorClassIdentifier: 
-  SpaceAppearance: {fileID: 21300000, guid: 612fdfa00eede4e4699dc8f4e948667f, type: 3}
+  SpaceAppearance: {fileID: 21300000, guid: 016635aba98d1d145b6835015e0d9882, type: 3}
   SurfaceAppearance: {fileID: 21300000, guid: dd1cadc071cb2ba43a90b61a4c556341, type: 3}
   Description: "\u041B\u0443\u043D\u0430 \u2014 \u0435\u0434\u0438\u043D\u0441\u0442\u0432\u0435\u043D\u043D\u044B\u0439
     \u0435\u0441\u0442\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u044B\u0439 \u0441\u043F\u0443\u0442\u043D\u0438\u043A
@@ -29,3 +29,10 @@ MonoBehaviour:
     \u0432\u0435\u043B\u0438\u0447\u0438\u043D\u0435 \u0435\u0441\u0442\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u044B\u0439
     \u0441\u043F\u0443\u0442\u043D\u0438\u043A \u043F\u043B\u0430\u043D\u0435\u0442\u044B
     \u0421\u043E\u043B\u043D\u0435\u0447\u043D\u043E\u0439 \u0441\u0438\u0441\u0442\u0435\u043C\u044B."
+  Trees:
+  - {fileID: 21300000, guid: 0ed9017379bc4194bb1a851c6cafb102, type: 3}
+  - {fileID: 21300000, guid: 40805ccc9a59fb2409e208dd7b90d4b3, type: 3}
+  - {fileID: 21300000, guid: aacb16413b1213d488190baf8ed839b9, type: 3}
+  - {fileID: 21300000, guid: 4c922d5f0e04a834a9e6e7acb78b32de, type: 3}
+  - {fileID: 21300000, guid: 6c683a934c4d8af4faefbec54dafd3db, type: 3}
+  - {fileID: 21300000, guid: 98844cb39e856904c885e443484da88f, type: 3}

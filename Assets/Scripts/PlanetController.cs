@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlanetController : MonoBehaviour, IInitialize<PlanetSO>
 {
     [SerializeField] private SpriteRenderer _surface;
+    [SerializeField] private GameObject _trees;
 
     private PlanetSO _planetSO;
 
@@ -13,5 +14,11 @@ public class PlanetController : MonoBehaviour, IInitialize<PlanetSO>
         _planetSO = planetSO;
 
         _surface.sprite = _planetSO.SurfaceAppearance;
+
+        foreach (Transform tree in _trees.transform)
+        {
+            int randomTree = Random.Range(0, _planetSO.Trees.Count);
+            tree.GetComponent<IInitialize<Sprite>>()?.Initialize(_planetSO.Trees[randomTree]);
+        }
     }
 }
