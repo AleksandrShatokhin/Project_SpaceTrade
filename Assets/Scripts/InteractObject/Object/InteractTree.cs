@@ -7,5 +7,6 @@ public class InteractTree : ObjectBase, IInitialize<Sprite>
     public void Initialize(Sprite appearance)
     {
         _appearance.sprite = appearance;
+
     }
 }

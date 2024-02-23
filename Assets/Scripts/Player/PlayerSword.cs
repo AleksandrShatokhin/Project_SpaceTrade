@@ -7,10 +7,19 @@ public class PlayerSword : MonoBehaviour
     [SerializeField] private int _speedRotate;
     [SerializeField] private float _delayToDeactivate;
     [SerializeField] private int _damage;
+    [SerializeField] private float _radius;
 
     private void OnEnable()
     {
         StartCoroutine(DeactivateSword());
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(_pivot.position, _radius);
+
+        foreach (Collider2D collider in colliders)
+        {
+            Debug.Log(collider.gameObject.name);
+            collider.GetComponent<IHealthable>()?.TakeDamage(_damage);
+        }
     }
 
     private void Update()
@@ -28,10 +37,5 @@ public class PlayerSword : MonoBehaviour
     {
         yield return new WaitForSeconds(_delayToDeactivate);
         gameObject.SetActive(false);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        collision.GetComponent<IHealthable>()?.TakeDamage(_damage);
     }
 }

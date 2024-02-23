@@ -102,6 +102,7 @@ MonoBehaviour:
   _speedRotate: 100
   _delayToDeactivate: 0.4
   _damage: 1
+  _radius: 0.5
 --- !u!61 &1239199284009066795
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -109,7 +110,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 954170524263780581}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
