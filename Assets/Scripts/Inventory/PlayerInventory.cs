@@ -18,16 +18,38 @@ public class PlayerInventory : MonoBehaviour, IInitialize
 
     private void OnEnable()
     {
-        int counter = 0;
-
-        while (counter < _content.transform.childCount && counter < _items.Count)
-        {
-            _content.transform.GetChild(counter).GetComponent<IInitialize<ItemSO>>()?.Initialize(_items[counter]);
-            counter++;
-        }
+        FillSlots();
     }
 
     private void OnDisable()
+    {
+        ClearInventory();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            GameController.Instance.CloseInventory();
+        }
+    }
+
+    private void FillSlots()
+    {
+        foreach (ItemSO item in _items)
+        {
+            foreach (Transform slot in _content.transform)
+            {
+                if (slot.GetComponent<ISlotable>()?.GetItem() == item || slot.GetComponent<ISlotable>()?.GetItem() == null)
+                {
+                    slot.GetComponent<IInitialize<ItemSO>>()?.Initialize(item);
+                    break;
+                }
+            }
+        }
+    }
+
+    private void ClearInventory()
     {
         foreach (Transform slot in _content.transform)
         {

@@ -46,8 +46,15 @@ public class GameController : Singleton<GameController>
         _playerInventory.AddItem(item);
     }
 
-    public void OpenInventory(bool value)
+    public void OpenInventory()
     {
-        _playerInventory.gameObject.SetActive(value);
+        if (_playerInventory.gameObject.activeInHierarchy) return;
+        _playerInventory.gameObject.SetActive(true);
+    }
+
+    public void CloseInventory()
+    {
+        if (!_playerInventory.gameObject.activeInHierarchy) return;
+        _playerInventory.gameObject.SetActive(false);
     }
 }

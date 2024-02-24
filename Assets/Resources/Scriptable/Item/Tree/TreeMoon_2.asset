@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46b1372154577bd4ca718dcb41ce5ab8, type: 3}
   m_Name: TreeMoon_2
   m_EditorClassIdentifier: 
+  Name: Tree Moon 2
   MainAppearance: {fileID: 21300000, guid: 40805ccc9a59fb2409e208dd7b90d4b3, type: 3}
   ItemApperance: {fileID: 21300000, guid: 9c308a1240d4b354e941482c075eeaba, type: 3}
   InventoryAppearance: {fileID: 21300000, guid: 9c308a1240d4b354e941482c075eeaba, type: 3}

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46b1372154577bd4ca718dcb41ce5ab8, type: 3}
   m_Name: TreeMars_4
   m_EditorClassIdentifier: 
+  Name: Tree Mars 4
   MainAppearance: {fileID: 21300000, guid: 345d3c26819179f46aa332d8b11e1024, type: 3}
   ItemApperance: {fileID: 21300000, guid: 9c308a1240d4b354e941482c075eeaba, type: 3}
   InventoryAppearance: {fileID: 21300000, guid: 9c308a1240d4b354e941482c075eeaba, type: 3}

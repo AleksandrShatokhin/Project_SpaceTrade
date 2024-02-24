@@ -10,18 +10,30 @@ public class PlayerInteract : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            _sword.SetActive(true);
+            Attack();
         }
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            _object.GetComponent<IInteractable>()?.ActionInteract();
+            InteractWithObject();
         }
 
         if (Input.GetKeyDown(KeyCode.I))
         {
-            GameController.Instance.OpenInventory(true);
+            GameController.Instance.OpenInventory();
         }
+    }
+
+    private void Attack()
+    {
+        if (_sword.activeInHierarchy) return;
+        _sword.SetActive(true);
+    }
+
+    private void InteractWithObject()
+    {
+        if (_object == null) return;
+        _object.GetComponent<IInteractable>()?.ActionInteract();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
