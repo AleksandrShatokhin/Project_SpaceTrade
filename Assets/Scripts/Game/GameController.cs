@@ -13,6 +13,9 @@ public class GameController : Singleton<GameController>
 
     [SerializeField] private PlanetMenu _planetMenuComponent;
     [SerializeField] private PlayerInventory _playerInventory;
+    [SerializeField] private GameObject _enemies;
+
+    private GameObject _player;
 
     private void Start()
     {
@@ -20,13 +23,6 @@ public class GameController : Singleton<GameController>
         _planetMenuComponent.Initialize(_planets);
 
         _playerInventory.Initialize();
-    }
-
-    private void InitializePlayer()
-    {
-        GameObject player = Instantiate(_playerPrefab, _playerSpawnPosition.position, Quaternion.identity);
-        _virtualCamera.Follow = player.transform;
-        player.GetComponent<IInitialize>()?.Initialize();
     }
 
     public void SwitchWindow(GameObject toClose, GameObject toOpen, PlanetSO planet = null)
@@ -38,6 +34,23 @@ public class GameController : Singleton<GameController>
         {
             toOpen.GetComponent<IInitialize<PlanetSO>>()?.Initialize(planet);
             InitializePlayer();
+            InitializeEnemies();
+        }
+    }
+
+    private void InitializePlayer()
+    {
+        _player = Instantiate(_playerPrefab, _playerSpawnPosition.position, Quaternion.identity);
+        _virtualCamera.Follow = _player.transform;
+        _player.GetComponent<IInitialize>()?.Initialize();
+    }
+
+    private void InitializeEnemies()
+    {
+        foreach (Transform enemy in _enemies.transform)
+        {
+            enemy.GetComponent<IInitialize>()?.Initialize();
+            enemy.GetComponent<IInitialize<Transform>>()?.Initialize(_player.transform);
         }
     }
 
