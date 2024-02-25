@@ -41,3 +41,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 37bc48a67bb1e684b9a32a40fb9210f5, type: 2}
   - {fileID: 11400000, guid: 9bca31240cfa48341b457d9c18a1b337, type: 2}
   - {fileID: 11400000, guid: 026b1b5c5c0c4024388c4ad4a698d4d9, type: 2}
+  Enemy: {fileID: 11400000, guid: be59991163bd28d4483d7bc43e408251, type: 2}

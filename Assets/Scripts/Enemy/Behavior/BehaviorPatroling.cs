@@ -15,14 +15,15 @@ public class BehaviorPatroling : BehaviorBase
 
     public override void Exit()
     {
-        StopCoroutine(UpdateBehavior());
+        StopAllCoroutines();
     }
 
     private IEnumerator UpdateBehavior()
     {
         while (transform.position != _targetPoint.position)
         {
-            transform.position = Vector2.MoveTowards(transform.position, _targetPoint.position, _speed * Time.deltaTime);
+            Vector3 targetPosition = new Vector3(_targetPoint.position.x, _targetPoint.position.y, transform.localPosition.z);
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, _speed * Time.deltaTime);
             yield return null;
         }
     }

@@ -39,3 +39,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1b5ad4205a96c7b4a8b8da65bc6fab30, type: 2}
   - {fileID: 11400000, guid: 4da6623b419db09438b1b7e5b22eed9b, type: 2}
   - {fileID: 11400000, guid: e681b0fd09ac235468848016497e6a21, type: 2}
+  Enemy: {fileID: 11400000, guid: c9bbc942f5ccf8d47a3a8939823d18c7, type: 2}

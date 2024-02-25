@@ -1,13 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public abstract class BehaviorBase : MonoBehaviour
-{
-    public abstract void Enter();
-    public abstract void Exit();
-}
-
 public class StateHandler
 {
     public BehaviorBase CurrentState { get; private set; }
@@ -20,6 +10,8 @@ public class StateHandler
 
     public void ChangeState(BehaviorBase state)
     {
+        if (CurrentState == state) return;
+
         CurrentState.Exit();
 
         CurrentState = state;
