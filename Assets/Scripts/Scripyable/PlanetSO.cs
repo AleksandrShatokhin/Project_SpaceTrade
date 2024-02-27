@@ -12,4 +12,5 @@ public class PlanetSO : ScriptableObject
     public List<ItemSO> Trees;
     public List<ItemSO> Stones;
     public ItemSO Enemy;
+    public MerchantSO Merchant;
 }

@@ -33,3 +33,8 @@ public interface ISlotable
     ItemSO GetItem();
     void Clear();
 }
+
+public interface ISetable<T>
+{
+    void SetData(T data);
+}

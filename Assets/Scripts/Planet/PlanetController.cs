@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlanetController : MonoBehaviour, IInitialize<PlanetSO>
 {
     [SerializeField] private SpriteRenderer _surface;
+    [SerializeField] private GameObject _merchantInventory;
 
     [Header("Player parameters")]
     [SerializeField] private GameObject _playerPrefab;
@@ -12,6 +13,7 @@ public class PlanetController : MonoBehaviour, IInitialize<PlanetSO>
     [SerializeField] private GameObject _trees;
     [SerializeField] private GameObject _stones;
     [SerializeField] private GameObject _enemy;
+    [SerializeField] private GameObject _merchant;
 
     private GameObject _player;
     private PlanetSO _planetSO;
@@ -28,6 +30,8 @@ public class PlanetController : MonoBehaviour, IInitialize<PlanetSO>
         InitializePlayer();
 
         InitializeEnemy();
+
+        InitializeMerchant();
     }
 
     private void InitializeTrees()
@@ -59,5 +63,12 @@ public class PlanetController : MonoBehaviour, IInitialize<PlanetSO>
     {
         _enemy.GetComponent<IInitialize<ItemSO>>()?.Initialize(_planetSO.Enemy);
         _enemy.GetComponent<IInitialize<Transform>>().Initialize(_player.transform);
+    }
+
+    private void InitializeMerchant()
+    {
+        int randomMerchant = Random.Range(0, _merchant.transform.childCount);
+        _merchant.transform.GetChild(randomMerchant).GetComponent<IInitialize<MerchantSO>>()?.Initialize(_planetSO.Merchant);
+        _merchant.transform.GetChild(randomMerchant).GetComponent<ISetable<GameObject>>()?.SetData(_merchantInventory);
     }
 }

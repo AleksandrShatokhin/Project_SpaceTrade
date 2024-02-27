@@ -4,7 +4,7 @@ public class PlayerInteract : MonoBehaviour
 {
     [SerializeField] private GameObject _sword;
 
-    private ObjectBase _object;
+    [SerializeField] private ObjectBase _object;
 
     private void Update()
     {
