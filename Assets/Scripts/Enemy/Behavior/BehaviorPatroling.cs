@@ -22,8 +22,10 @@ public class BehaviorPatroling : BehaviorBase
     {
         while (transform.position != _targetPoint.position)
         {
-            Vector3 targetPosition = new Vector3(_targetPoint.position.x, _targetPoint.position.y, transform.localPosition.z);
-            transform.position = Vector2.MoveTowards(transform.position, targetPosition, _speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, _targetPoint.position, _speed * Time.deltaTime);
+
+            SetDirection(_targetPoint);
+
             yield return null;
         }
     }

@@ -3,12 +3,16 @@ using UnityEngine;
 
 public class BehaviorAttack : BehaviorBase, IInitialize<Transform>
 {
+    [SerializeField] private GameObject _weapon;
     [SerializeField] private float _speed;
-    [SerializeField] private Transform _player;
+
+    private Transform _player;
+    private bool isCanAttack;
 
     public void Initialize(Transform player)
     {
         _player = player;
+        isCanAttack = true;
     }
 
     public override void Enter()
@@ -25,9 +29,32 @@ public class BehaviorAttack : BehaviorBase, IInitialize<Transform>
     {
         while (transform.position != _player.position)
         {
-            Vector3 targetPosition = new Vector3(_player.position.x, _player.position.y, transform.localPosition.z);
-            transform.position = Vector2.MoveTowards(transform.position, targetPosition, _speed * Time.deltaTime);
+            if (Vector2.Distance(transform.position, _player.position) > 3)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, _player.position, _speed * Time.deltaTime);
+            }
+            else
+            {
+                Attack();
+            }
+
+            SetDirection(_player);
+
             yield return null;
         }
+    }
+
+    private void Attack()
+    {
+        if (_weapon.activeInHierarchy || !isCanAttack) return;
+        StartCoroutine(ReloadAttacking());
+        _weapon.SetActive(true);
+    }
+
+    private IEnumerator ReloadAttacking()
+    {
+        isCanAttack = false;
+        yield return new WaitForSeconds(2.0f);
+        isCanAttack = true;
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour, IInitialize
+public class PlayerController : MonoBehaviour, IInitialize, IDeathable
 {
     [SerializeField] private float _horizontalSpeed;
     [SerializeField] private float _verticalSpeed;
@@ -57,5 +57,10 @@ public class PlayerController : MonoBehaviour, IInitialize
         Vector3 scaler = transform.localScale;
         scaler.x = scaler.x * -1;
         transform.localScale = scaler;
+    }
+
+    public void Death()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 }

@@ -17,16 +17,18 @@ public class PlayerSword : MonoBehaviour
 
         foreach (Collider2D collider in colliders)
         {
+            if (collider.gameObject == this.transform.parent.gameObject) continue;
             collider.GetComponent<IHealthable>()?.TakeDamage(_damage);
         }
     }
 
     private void Update()
     {
-        transform.RotateAround(_pivot.position, Vector3.forward, GetParsSpeed(_speedRotate) * Time.deltaTime);
+        transform.RotateAround(_pivot.position, Vector3.forward, GetParseSpeed(_speedRotate) * Time.deltaTime);
+        CheckAngle();
     }
 
-    private int GetParsSpeed(int speed)
+    private int GetParseSpeed(int speed)
     {
         speed = speed * 10;
         return speed;
@@ -36,5 +38,17 @@ public class PlayerSword : MonoBehaviour
     {
         yield return new WaitForSeconds(_delayToDeactivate);
         gameObject.SetActive(false);
+    }
+
+    private void CheckAngle()
+    {
+        if (transform.localEulerAngles.z >= 0 && transform.localEulerAngles.z < 180)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, _pivot.position.z + 0.01f);
+        }
+        else
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, _pivot.position.z - 0.01f);
+        }
     }
 }

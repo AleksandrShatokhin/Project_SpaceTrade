@@ -6,6 +6,7 @@ public class HealthComponent : MonoBehaviour, IHealthable
 
     public void TakeDamage(int damage)
     {
+        GetComponentInParent<HitHandler>()?.TakeHit();
         _health = _health - damage;
 
         if (_health <= 0)
