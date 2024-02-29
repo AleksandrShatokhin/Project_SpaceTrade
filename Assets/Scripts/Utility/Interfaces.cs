@@ -42,5 +42,10 @@ public interface ISetable<T>
 
 public interface ITradable
 {
-    void MakeDeal(GameObject content, KeyValuePair<ItemSO, int> item);
+    void MakeDeal(GameObject content, ItemSO item, int count, int price);
 }
+
+//public interface ITradable
+//{
+//    void MakeDeal(GameObject content, KeyValuePair<ItemSO, int> item);
+//}

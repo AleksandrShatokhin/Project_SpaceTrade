@@ -37,4 +37,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 74fafcafa3438da49a1e0ef433b5e458, type: 2}
   - {fileID: 11400000, guid: cdb3beab908205e4a8d35ca08a29f387, type: 2}
   Enemy: {fileID: 11400000, guid: 1aa632b5ed6d38145bbee60e11f578c1, type: 2}
-  Merchant: {fileID: 11400000, guid: 7a83bf310ac75ed4b8df3b673260fe12, type: 2}
+  Merchant: {fileID: 11400000, guid: fac28089d6986ac418c3878355713074, type: 2}

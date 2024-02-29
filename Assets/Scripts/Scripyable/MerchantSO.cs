@@ -10,4 +10,7 @@ public class MerchantSO : ScriptableObject
     public List<int> ItemCounts;
 
     public int Money;
+    public float priceCoefficient;
+
+    public List<PriceStruct> PriceStructs;
 }

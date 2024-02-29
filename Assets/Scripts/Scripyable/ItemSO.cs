@@ -12,9 +12,3 @@ public class ItemSO : ScriptableObject
 
     public int Price;
 }
-
-public struct PriceStruct
-{
-    public ItemType ItemType;
-    public int Pricing;
-}

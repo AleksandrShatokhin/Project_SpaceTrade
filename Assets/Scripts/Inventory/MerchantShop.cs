@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -76,11 +77,11 @@ public class MerchantShop : MonoBehaviour, IInitialize, ITradable
 
     private void FillSlots()
     {
-        FillAssortment(_contentMerchant, _merchant.Assortment);
+        FillAssortment(_contentMerchant, _merchant.Assortment, _merchant.PriceCoefficient);
         FillAssortment(_contentPlayer, _playerInventory.Inventory);
     }
 
-    private void FillAssortment(GameObject content, Dictionary<ItemSO, int> assortment)
+    private void FillAssortment(GameObject content, Dictionary<ItemSO, int> assortment, float merchantCoefficient = 1)
     {
         List<ItemSO> items = assortment.Keys.ToList();
         List<int> counts = assortment.Values.ToList();
@@ -89,7 +90,11 @@ public class MerchantShop : MonoBehaviour, IInitialize, ITradable
 
         while (counter < assortment.Count)
         {
-            content.transform.GetChild(counter).GetComponent<InventorySlot>().SetItem(items[counter], counts[counter]);
+            ItemSO item = items[counter];
+            int count = counts[counter];
+            float planetCoefficient = _merchant.GetPlanetCoefficient(items[counter].ItemType);
+
+            content.transform.GetChild(counter).GetComponent<InventorySlot>().SetItem(item, count, planetCoefficient, merchantCoefficient);
             counter += 1;
         }
     }
@@ -107,29 +112,32 @@ public class MerchantShop : MonoBehaviour, IInitialize, ITradable
         }
     }
 
-    public void MakeDeal(GameObject content, KeyValuePair<ItemSO, int> item)
+    public void MakeDeal(GameObject content, ItemSO item, int count, int price)
     {
         if (content == _contentMerchant)
         {
-            if (_playerInventory.Money > item.Key.Price)
+            if (_playerInventory.Money > price)
             {
-                int tempCount = _merchant.Assortment.GetValueOrDefault(item.Key);
+                int tempCount = _merchant.Assortment.GetValueOrDefault(item);
 
                 if (tempCount == 1)
                 {
-                    _merchant.Assortment.Remove(item.Key);
-                    _playerInventory.AddItem(item.Key);
+                    _merchant.Assortment.Remove(item);
+                    _playerInventory.AddItem(item);
                 }
                 else
                 {
                     tempCount -= 1;
-                    _merchant.Assortment.Remove(item.Key);
-                    _merchant.Assortment.Add(item.Key, tempCount);
-                    _playerInventory.AddItem(item.Key);
+                    _merchant.Assortment.Remove(item);
+                    _merchant.Assortment.Add(item, tempCount);
+                    _playerInventory.AddItem(item);
                 }
 
-                _playerInventory.Money -= item.Key.Price;
+                _playerInventory.Money -= price;
                 _playerMoney.text = _playerInventory.Money.ToString();
+
+                _merchant.Money += price;
+                _merchantMoney.text = _merchant.Money.ToString();
             }
             else
             {
@@ -139,25 +147,28 @@ public class MerchantShop : MonoBehaviour, IInitialize, ITradable
 
         if (content == _contentPlayer)
         {
-            if (_merchant.Money > item.Key.Price)
+            if (_merchant.Money > price)
             {
-                int tempCount = _playerInventory.Inventory.GetValueOrDefault(item.Key);
+                int tempCount = _playerInventory.Inventory.GetValueOrDefault(item);
 
                 if (tempCount == 1)
                 {
-                    _playerInventory.Inventory.Remove(item.Key);
-                    _merchant.AddItem(item.Key);
+                    _playerInventory.Inventory.Remove(item);
+                    _merchant.AddItem(item);
                 }
                 else
                 {
                     tempCount -= 1;
-                    _playerInventory.Inventory.Remove(item.Key);
-                    _playerInventory.Inventory.Add(item.Key, tempCount);
-                    _merchant.AddItem(item.Key);
+                    _playerInventory.Inventory.Remove(item);
+                    _playerInventory.Inventory.Add(item, tempCount);
+                    _merchant.AddItem(item);
                 }
 
-                _merchant.Money -= item.Key.Price;
+                _merchant.Money -= price;
                 _merchantMoney.text = _merchant.Money.ToString();
+
+                _playerInventory.Money += price;
+                _playerMoney.text = _playerInventory.Money.ToString();
             }
             else
             {
@@ -167,6 +178,73 @@ public class MerchantShop : MonoBehaviour, IInitialize, ITradable
 
         UpdateAssortment();
     }
+
+    //public void MakeDeal(GameObject content, KeyValuePair<ItemSO, int> item)
+    //{
+    //    if (content == _contentMerchant)
+    //    {
+    //        if (_playerInventory.Money > PriceRarser.GetParsePrice(item.Key.Price, _merchant.PriceCoefficient))
+    //        {
+    //            int tempCount = _merchant.Assortment.GetValueOrDefault(item.Key);
+
+    //            if (tempCount == 1)
+    //            {
+    //                _merchant.Assortment.Remove(item.Key);
+    //                _playerInventory.AddItem(item.Key);
+    //            }
+    //            else
+    //            {
+    //                tempCount -= 1;
+    //                _merchant.Assortment.Remove(item.Key);
+    //                _merchant.Assortment.Add(item.Key, tempCount);
+    //                _playerInventory.AddItem(item.Key);
+    //            }
+
+    //            _playerInventory.Money -= (int)PriceRarser.GetParsePrice(item.Key.Price, _merchant.PriceCoefficient);
+    //            _playerMoney.text = _playerInventory.Money.ToString();
+
+    //            _merchant.Money += (int)PriceRarser.GetParsePrice(item.Key.Price, _merchant.PriceCoefficient);
+    //            _merchantMoney.text = _merchant.Money.ToString();
+    //        }
+    //        else
+    //        {
+    //            Debug.Log("The PLAYER doesn't have enough money!");
+    //        }
+    //    }
+
+    //    if (content == _contentPlayer)
+    //    {
+    //        if (_merchant.Money > item.Key.Price)
+    //        {
+    //            int tempCount = _playerInventory.Inventory.GetValueOrDefault(item.Key);
+
+    //            if (tempCount == 1)
+    //            {
+    //                _playerInventory.Inventory.Remove(item.Key);
+    //                _merchant.AddItem(item.Key);
+    //            }
+    //            else
+    //            {
+    //                tempCount -= 1;
+    //                _playerInventory.Inventory.Remove(item.Key);
+    //                _playerInventory.Inventory.Add(item.Key, tempCount);
+    //                _merchant.AddItem(item.Key);
+    //            }
+
+    //            _merchant.Money -= item.Key.Price;
+    //            _merchantMoney.text = _merchant.Money.ToString();
+
+    //            _playerInventory.Money += item.Key.Price;
+    //            _playerMoney.text = _playerInventory.Money.ToString();
+    //        }
+    //        else
+    //        {
+    //            Debug.Log("The MERCHANT doesn't have enough money!");
+    //        }
+    //    }
+
+    //    UpdateAssortment();
+    //}
 
     private void UpdateAssortment()
     {

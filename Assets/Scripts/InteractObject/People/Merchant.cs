@@ -22,6 +22,21 @@ public class Merchant : ObjectBase, IInitialize<MerchantSO>, ISetable<GameObject
         set { _money = value; }
     }
 
+    public float PriceCoefficient { get { return _merchantSO.priceCoefficient; } }
+
+    public float GetPlanetCoefficient(ItemType itemType)
+    {
+        foreach (PriceStruct priceStruct in _merchantSO.PriceStructs)
+        {
+            if (priceStruct.ItemType == itemType)
+            {
+                return priceStruct.PriceCoefficient;
+            }
+        }
+
+        return 1.0f;
+    }
+
     public void Initialize(MerchantSO merchantSO)
     {
         gameObject.SetActive(true);

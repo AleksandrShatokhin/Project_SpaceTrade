@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -13,8 +14,9 @@ public class InventorySlot : MonoBehaviour, IPointerDownHandler
 
     private ItemSO _item;
     private int _counter = 0;
+    private int _itemPrice;
 
-    public void SetItem(ItemSO item, int count)
+    public void SetItem(ItemSO item, int count, float planetPriceCoefficient = 1, float merchantPriceCoefficient = 1)
     {
         _item = item;
         _counter = count;
@@ -25,7 +27,8 @@ public class InventorySlot : MonoBehaviour, IPointerDownHandler
         _image.sprite = _item.InventoryAppearance;
         _count.text = _counter.ToString();
 
-        _price.text = _item.Price.ToString();
+        _itemPrice = (int)PriceRarser.GetParsePrice(_item.Price, planetPriceCoefficient, merchantPriceCoefficient);
+        _price.text = _itemPrice.ToString();
     }
 
     public void Clear()
@@ -43,7 +46,9 @@ public class InventorySlot : MonoBehaviour, IPointerDownHandler
     {
         if (GameController.Instance.GameState == GameState.GamePlay) return;
 
-        KeyValuePair<ItemSO, int> tempItem = new KeyValuePair<ItemSO, int>(_item, _counter);
-        GetComponentInParent<ITradable>()?.MakeDeal(transform.parent.gameObject, tempItem);
+        //KeyValuePair<ItemSO, int> tempItem = new KeyValuePair<ItemSO, int>(_item, _counter);
+        //GetComponentInParent<ITradable>()?.MakeDeal(transform.parent.gameObject, tempItem);
+
+        GetComponentInParent<ITradable>()?.MakeDeal(transform.parent.gameObject, _item, _counter, _itemPrice);
     }
 }
