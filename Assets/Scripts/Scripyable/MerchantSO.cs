@@ -8,4 +8,6 @@ public class MerchantSO : ScriptableObject
 
     public List<ItemSO> Assortment;
     public List<int> ItemCounts;
+
+    public int Money;
 }

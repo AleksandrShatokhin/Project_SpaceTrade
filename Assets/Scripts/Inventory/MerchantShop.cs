@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,9 @@ public class MerchantShop : MonoBehaviour, IInitialize, ITradable
     [SerializeField] private GameObject _buyIndicator;
     [SerializeField] private GameObject _sellIndicator;
 
+    [SerializeField] private TextMeshProUGUI _merchantMoney;
+    [SerializeField] private TextMeshProUGUI _playerMoney;
+
     [SerializeField] private GameObject _merchantInventoryGO;
     [SerializeField] private GameObject _playerInventoryGO;
 
@@ -20,9 +24,6 @@ public class MerchantShop : MonoBehaviour, IInitialize, ITradable
 
     private Merchant _merchant;
     private PlayerInventory _playerInventory;
-
-    //private Dictionary<ItemSO, int> _merchantItems;
-    //private Dictionary<ItemSO, int> _playerItems;
 
     private void OnEnable()
     {
@@ -48,6 +49,8 @@ public class MerchantShop : MonoBehaviour, IInitialize, ITradable
         _playerInventoryGO.SetActive(false);
         _buyIndicator.SetActive(true);
         _sellIndicator.SetActive(false);
+        _merchantMoney.transform.parent.gameObject.SetActive(true);
+        _playerMoney.transform.parent.gameObject.SetActive(false);
     }
 
     private void ClickButtonSell()
@@ -56,6 +59,8 @@ public class MerchantShop : MonoBehaviour, IInitialize, ITradable
         _playerInventoryGO.SetActive(true);
         _buyIndicator.SetActive(false);
         _sellIndicator.SetActive(true);
+        _merchantMoney.transform.parent.gameObject.SetActive(false);
+        _playerMoney.transform.parent.gameObject.SetActive(true);
     }
 
     public void OpenMerchantShop(Merchant merchant, PlayerInventory playerInventory)
@@ -63,13 +68,10 @@ public class MerchantShop : MonoBehaviour, IInitialize, ITradable
         _merchant = merchant;
         _playerInventory = playerInventory;
 
-        //_merchantItems = _merchant.Assortment;
-        //_playerItems = _playerInventory.Inventory;
+        _merchantMoney.text = _merchant.Money.ToString();
+        _playerMoney.text = _playerInventory.Money.ToString();
 
-        _merchantInventoryGO.SetActive(true);
-        _playerInventoryGO.SetActive(false);
-        _buyIndicator.SetActive(true);
-        _sellIndicator.SetActive(false);
+        ClickButtonBuy();
     }
 
     private void FillSlots()

@@ -20,3 +20,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: de3fb69d095711341891fd111a750783, type: 2}
   - {fileID: 11400000, guid: b47c6ff9cf043fd40ba9eb5c924259d7, type: 2}
   ItemCounts: 0200000005000000010000000500000003000000
+  Money: 50

@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Merchant : ObjectBase, IInitialize<MerchantSO>, ISetable<GameObject>
 {
+    [SerializeField] private int _money;
+
     private GameObject _inventory;
     private MerchantSO _merchantSO;
 
@@ -14,12 +16,19 @@ public class Merchant : ObjectBase, IInitialize<MerchantSO>, ISetable<GameObject
         set { _assortment = value; }
     }
 
+    public int Money
+    {
+        get { return _money; }
+        set { _money = value; }
+    }
+
     public void Initialize(MerchantSO merchantSO)
     {
         gameObject.SetActive(true);
 
         _merchantSO = merchantSO;
         _appearance.sprite = _merchantSO.MainAppearance;
+        _money = _merchantSO.Money;
 
         FillAssortment();
     }

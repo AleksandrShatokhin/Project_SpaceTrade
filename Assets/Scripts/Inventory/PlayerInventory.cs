@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerInventory : MonoBehaviour, IInitialize
 {
     [SerializeField] private Dictionary<ItemSO, int> _inventory;
+    [SerializeField] private int _money;
 
     [SerializeField] private Button _panelButton;
     [SerializeField] private GameObject _content;
@@ -14,6 +15,12 @@ public class PlayerInventory : MonoBehaviour, IInitialize
     {
         get { return _inventory; }
         set { _inventory = value; }
+    }
+
+    public int Money
+    {
+        get { return _money; }
+        set { _money = value; }
     }
 
     private void OnEnable()
@@ -31,6 +38,7 @@ public class PlayerInventory : MonoBehaviour, IInitialize
         _inventory = new Dictionary<ItemSO, int>();
         gameObject.SetActive(false);
         _panelButton.onClick.AddListener(() => { gameObject.SetActive(false); });
+        _money = 30;
     }
 
     private void Update()
