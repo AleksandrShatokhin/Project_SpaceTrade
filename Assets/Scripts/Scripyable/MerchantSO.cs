@@ -7,4 +7,5 @@ public class MerchantSO : ScriptableObject
     public Sprite MainAppearance;
 
     public List<ItemSO> Assortment;
+    public List<int> ItemCounts;
 }

@@ -6,12 +6,35 @@ public class Merchant : ObjectBase, IInitialize<MerchantSO>, ISetable<GameObject
     private GameObject _inventory;
     private MerchantSO _merchantSO;
 
+    private Dictionary<ItemSO, int> _assortment;
+
+    public Dictionary<ItemSO, int> Assortment
+    {
+        get { return _assortment; }
+        set { _assortment = value; }
+    }
+
     public void Initialize(MerchantSO merchantSO)
     {
         gameObject.SetActive(true);
 
         _merchantSO = merchantSO;
         _appearance.sprite = _merchantSO.MainAppearance;
+
+        FillAssortment();
+    }
+
+    private void FillAssortment()
+    {
+        _assortment = new Dictionary<ItemSO, int>();
+
+        int counter = 0;
+
+        while (counter < _merchantSO.Assortment.Count)
+        {
+            _assortment.Add(_merchantSO.Assortment[counter], _merchantSO.ItemCounts[counter]);
+            counter += 1;
+        }
     }
 
     public void SetData(GameObject inventory)
@@ -23,7 +46,6 @@ public class Merchant : ObjectBase, IInitialize<MerchantSO>, ISetable<GameObject
 
     public override void ActionInteract()
     {
-        if (_inventory.activeInHierarchy) return;
-        _inventory.SetActive(true);
+        GameController.Instance.OpenMerchantShop(this);
     }
 }

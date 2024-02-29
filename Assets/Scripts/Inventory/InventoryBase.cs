@@ -32,6 +32,8 @@ public class InventoryBase : MonoBehaviour, IInitialize
         {
             foreach (Transform slot in _content.transform)
             {
+                Debug.Log($"Slot: {slot.GetComponent<ISlotable>()?.GetItem()}");
+
                 if (slot.GetComponent<ISlotable>()?.GetItem() == item || slot.GetComponent<ISlotable>()?.GetItem() == null)
                 {
                     slot.GetComponent<IInitialize<ItemSO>>()?.Initialize(item);

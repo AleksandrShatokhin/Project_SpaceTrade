@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public interface IInitialize
@@ -37,4 +38,9 @@ public interface ISlotable
 public interface ISetable<T>
 {
     void SetData(T data);
+}
+
+public interface ITradable
+{
+    void MakeDeal(GameObject content, KeyValuePair<ItemSO, int> item);
 }
