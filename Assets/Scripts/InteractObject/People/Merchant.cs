@@ -46,6 +46,21 @@ public class Merchant : ObjectBase, IInitialize<MerchantSO>, ISetable<GameObject
         }
     }
 
+    public void AddItem(ItemSO item)
+    {
+        if (!_assortment.ContainsKey(item))
+        {
+            _assortment.Add(item, 1);
+        }
+        else
+        {
+            int tempCount = _assortment.GetValueOrDefault(item);
+            tempCount += 1;
+            _assortment.Remove(item);
+            _assortment.Add(item, tempCount);
+        }
+    }
+
     public void SetData(GameObject inventory)
     {
         _inventory = inventory;
