@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: TreeGrass_1
   m_EditorClassIdentifier: 
   Name: Tree Grass 1
+  ItemType: 0
   MainAppearance: {fileID: 21300000, guid: 5e4320d3223600c4c8082f2abe725239, type: 3}
   ItemApperance: {fileID: 21300000, guid: 9c308a1240d4b354e941482c075eeaba, type: 3}
   InventoryAppearance: {fileID: 21300000, guid: 9c308a1240d4b354e941482c075eeaba, type: 3}
+  Price: 10

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: EnemyMars
   m_EditorClassIdentifier: 
   Name: Enemy Mars
+  ItemType: 1
   MainAppearance: {fileID: 21300000, guid: d83d45eb54109274fb23ffcbbcfa91ce, type: 3}
   ItemApperance: {fileID: 21300000, guid: c4187d15a32c6444885d73bd4569802a, type: 3}
   InventoryAppearance: {fileID: 21300000, guid: c4187d15a32c6444885d73bd4569802a, type: 3}
+  Price: 21

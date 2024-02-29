@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: StoneMoon_3
   m_EditorClassIdentifier: 
   Name: Stone Moon 3
+  ItemType: 2
   MainAppearance: {fileID: 21300000, guid: 05a17c0f2123a9848b42511cc3bb5669, type: 3}
   ItemApperance: {fileID: 21300000, guid: 442294f117fd6b844abca4d3320bc429, type: 3}
   InventoryAppearance: {fileID: 21300000, guid: 2f362c80f46d0b4469bfd52aa49994fc, type: 3}
+  Price: 8

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: StoneWater_1
   m_EditorClassIdentifier: 
   Name: Stone Water 1
+  ItemType: 3
   MainAppearance: {fileID: 21300000, guid: 8999a00f1bd9deb4a8019794f9db604d, type: 3}
   ItemApperance: {fileID: 21300000, guid: 442294f117fd6b844abca4d3320bc429, type: 3}
   InventoryAppearance: {fileID: 21300000, guid: 2f362c80f46d0b4469bfd52aa49994fc, type: 3}
+  Price: 9

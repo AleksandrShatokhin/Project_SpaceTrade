@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: EnemyMoon
   m_EditorClassIdentifier: 
   Name: Enemy Moon
+  ItemType: 2
   MainAppearance: {fileID: 21300000, guid: e582767f4c01d414e9f320d4365c3265, type: 3}
   ItemApperance: {fileID: 21300000, guid: c0399f1afc68c4d45a4daabec293b42d, type: 3}
   InventoryAppearance: {fileID: 21300000, guid: c0399f1afc68c4d45a4daabec293b42d, type: 3}
+  Price: 19

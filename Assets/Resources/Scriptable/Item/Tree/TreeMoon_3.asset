@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: TreeMoon_3
   m_EditorClassIdentifier: 
   Name: Tree Moon 3
+  ItemType: 2
   MainAppearance: {fileID: 21300000, guid: aacb16413b1213d488190baf8ed839b9, type: 3}
   ItemApperance: {fileID: 21300000, guid: 9c308a1240d4b354e941482c075eeaba, type: 3}
   InventoryAppearance: {fileID: 21300000, guid: 9c308a1240d4b354e941482c075eeaba, type: 3}
+  Price: 14

@@ -4,8 +4,17 @@ using UnityEngine;
 public class ItemSO : ScriptableObject
 {
     public string Name;
+    public ItemType ItemType;
 
     public Sprite MainAppearance;
     public Sprite ItemApperance;
     public Sprite InventoryAppearance;
+
+    public int Price;
+}
+
+public struct PriceStruct
+{
+    public ItemType ItemType;
+    public int Pricing;
 }

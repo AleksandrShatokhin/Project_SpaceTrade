@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: StoneGrass_1
   m_EditorClassIdentifier: 
   Name: Stone Grass 1
+  ItemType: 0
   MainAppearance: {fileID: 21300000, guid: 8252bab5a04d4774288705a7053888c0, type: 3}
   ItemApperance: {fileID: 21300000, guid: 442294f117fd6b844abca4d3320bc429, type: 3}
   InventoryAppearance: {fileID: 21300000, guid: 2f362c80f46d0b4469bfd52aa49994fc, type: 3}
+  Price: 10

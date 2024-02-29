@@ -9,6 +9,7 @@ public class InventorySlot : MonoBehaviour, IPointerDownHandler
     [SerializeField] private TextMeshProUGUI _name;
     [SerializeField] private Image _image;
     [SerializeField] private TextMeshProUGUI _count;
+    [SerializeField] private TextMeshProUGUI _price;
 
     private ItemSO _item;
     private int _counter = 0;
@@ -23,6 +24,8 @@ public class InventorySlot : MonoBehaviour, IPointerDownHandler
         _name.text = _item.Name;
         _image.sprite = _item.InventoryAppearance;
         _count.text = _counter.ToString();
+
+        _price.text = _item.Price.ToString();
     }
 
     public void Clear()

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: EnemyGrass
   m_EditorClassIdentifier: 
   Name: Enemy Grass
+  ItemType: 0
   MainAppearance: {fileID: 21300000, guid: d36fb7675c45e94409059f93f53daf81, type: 3}
   ItemApperance: {fileID: 21300000, guid: 592b82f7a8de7d44e8cff8739612a29f, type: 3}
   InventoryAppearance: {fileID: 21300000, guid: 592b82f7a8de7d44e8cff8739612a29f, type: 3}
+  Price: 20

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: TreeMars_1
   m_EditorClassIdentifier: 
   Name: Tree Mars 1
+  ItemType: 1
   MainAppearance: {fileID: 21300000, guid: c00cabcef03028044970091d6be2b302, type: 3}
   ItemApperance: {fileID: 21300000, guid: 9c308a1240d4b354e941482c075eeaba, type: 3}
   InventoryAppearance: {fileID: 21300000, guid: 9c308a1240d4b354e941482c075eeaba, type: 3}
+  Price: 15

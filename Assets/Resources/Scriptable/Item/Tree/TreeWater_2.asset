@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: TreeWater_2
   m_EditorClassIdentifier: 
   Name: Tree Water 2
+  ItemType: 3
   MainAppearance: {fileID: 21300000, guid: de97fe9ec1f98cd438e78d4c3ccfd60a, type: 3}
   ItemApperance: {fileID: 21300000, guid: 9c308a1240d4b354e941482c075eeaba, type: 3}
   InventoryAppearance: {fileID: 21300000, guid: 9c308a1240d4b354e941482c075eeaba, type: 3}
+  Price: 7

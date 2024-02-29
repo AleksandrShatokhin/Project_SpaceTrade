@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: EnemyWater
   m_EditorClassIdentifier: 
   Name: Enemy Water
+  ItemType: 3
   MainAppearance: {fileID: 21300000, guid: c1f832a73315bca43889b24bf79f66b5, type: 3}
   ItemApperance: {fileID: 21300000, guid: f4973c80736dd594fa67a1d71544bbc4, type: 3}
   InventoryAppearance: {fileID: 21300000, guid: f4973c80736dd594fa67a1d71544bbc4, type: 3}
+  Price: 18

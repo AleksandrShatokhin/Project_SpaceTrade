@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: StoneMars_2
   m_EditorClassIdentifier: 
   Name: Stone Mars 2
+  ItemType: 1
   MainAppearance: {fileID: 21300000, guid: 191a2818d1d0d854c976f9fd6a4d572f, type: 3}
   ItemApperance: {fileID: 21300000, guid: 442294f117fd6b844abca4d3320bc429, type: 3}
   InventoryAppearance: {fileID: 21300000, guid: 2f362c80f46d0b4469bfd52aa49994fc, type: 3}
+  Price: 13
