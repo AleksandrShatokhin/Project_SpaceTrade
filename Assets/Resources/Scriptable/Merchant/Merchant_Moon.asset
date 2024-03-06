@@ -21,13 +21,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b47c6ff9cf043fd40ba9eb5c924259d7, type: 2}
   ItemCounts: 0200000005000000010000000500000003000000
   Money: 50
-  Pricing: 1.1
+  priceCoefficient: 1.1
   PriceStructs:
   - ItemType: 0
-    Pricing: 1.2
+    PriceCoefficient: 1.4
   - ItemType: 1
-    Pricing: 1.1
+    PriceCoefficient: 1.2
   - ItemType: 2
-    Pricing: 1
+    PriceCoefficient: 1
   - ItemType: 3
-    Pricing: 1.3
+    PriceCoefficient: 1.3

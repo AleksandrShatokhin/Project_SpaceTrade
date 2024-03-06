@@ -6,6 +6,7 @@ public class InteractTree : ObjectBase
 
     public override void Initialize(ItemSO item)
     {
+        gameObject.SetActive(true);
         base.Initialize(item);
         _appearance.sprite = _item.MainAppearance;
     }

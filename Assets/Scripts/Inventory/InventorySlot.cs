@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -45,10 +43,6 @@ public class InventorySlot : MonoBehaviour, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         if (GameController.Instance.GameState == GameState.GamePlay) return;
-
-        //KeyValuePair<ItemSO, int> tempItem = new KeyValuePair<ItemSO, int>(_item, _counter);
-        //GetComponentInParent<ITradable>()?.MakeDeal(transform.parent.gameObject, tempItem);
-
         GetComponentInParent<ITradable>()?.MakeDeal(transform.parent.gameObject, _item, _counter, _itemPrice);
     }
 }

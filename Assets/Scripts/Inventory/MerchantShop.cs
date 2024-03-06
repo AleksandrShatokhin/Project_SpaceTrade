@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -178,73 +177,6 @@ public class MerchantShop : MonoBehaviour, IInitialize, ITradable
 
         UpdateAssortment();
     }
-
-    //public void MakeDeal(GameObject content, KeyValuePair<ItemSO, int> item)
-    //{
-    //    if (content == _contentMerchant)
-    //    {
-    //        if (_playerInventory.Money > PriceRarser.GetParsePrice(item.Key.Price, _merchant.PriceCoefficient))
-    //        {
-    //            int tempCount = _merchant.Assortment.GetValueOrDefault(item.Key);
-
-    //            if (tempCount == 1)
-    //            {
-    //                _merchant.Assortment.Remove(item.Key);
-    //                _playerInventory.AddItem(item.Key);
-    //            }
-    //            else
-    //            {
-    //                tempCount -= 1;
-    //                _merchant.Assortment.Remove(item.Key);
-    //                _merchant.Assortment.Add(item.Key, tempCount);
-    //                _playerInventory.AddItem(item.Key);
-    //            }
-
-    //            _playerInventory.Money -= (int)PriceRarser.GetParsePrice(item.Key.Price, _merchant.PriceCoefficient);
-    //            _playerMoney.text = _playerInventory.Money.ToString();
-
-    //            _merchant.Money += (int)PriceRarser.GetParsePrice(item.Key.Price, _merchant.PriceCoefficient);
-    //            _merchantMoney.text = _merchant.Money.ToString();
-    //        }
-    //        else
-    //        {
-    //            Debug.Log("The PLAYER doesn't have enough money!");
-    //        }
-    //    }
-
-    //    if (content == _contentPlayer)
-    //    {
-    //        if (_merchant.Money > item.Key.Price)
-    //        {
-    //            int tempCount = _playerInventory.Inventory.GetValueOrDefault(item.Key);
-
-    //            if (tempCount == 1)
-    //            {
-    //                _playerInventory.Inventory.Remove(item.Key);
-    //                _merchant.AddItem(item.Key);
-    //            }
-    //            else
-    //            {
-    //                tempCount -= 1;
-    //                _playerInventory.Inventory.Remove(item.Key);
-    //                _playerInventory.Inventory.Add(item.Key, tempCount);
-    //                _merchant.AddItem(item.Key);
-    //            }
-
-    //            _merchant.Money -= item.Key.Price;
-    //            _merchantMoney.text = _merchant.Money.ToString();
-
-    //            _playerInventory.Money += item.Key.Price;
-    //            _playerMoney.text = _playerInventory.Money.ToString();
-    //        }
-    //        else
-    //        {
-    //            Debug.Log("The MERCHANT doesn't have enough money!");
-    //        }
-    //    }
-
-    //    UpdateAssortment();
-    //}
 
     private void UpdateAssortment()
     {

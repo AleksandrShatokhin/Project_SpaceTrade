@@ -17,6 +17,9 @@ public class PlanetController : MonoBehaviour, IInitialize<PlanetSO>
 
     private GameObject _player;
     private PlanetSO _planetSO;
+    private bool _planetLoaded;
+
+    public bool PlanetLoaded { get { return _planetLoaded; } }
 
     public void Initialize(PlanetSO planetSO)
     {
@@ -32,10 +35,22 @@ public class PlanetController : MonoBehaviour, IInitialize<PlanetSO>
         InitializeEnemy();
 
         InitializeMerchant();
+
+        _planetLoaded = true;
+    }
+
+    private void OnDisable()
+    {
+        Destroy(_player);
     }
 
     private void InitializeTrees()
     {
+        foreach (Transform tree in _trees.transform)
+        {
+            tree.gameObject.SetActive(false);
+        }
+
         foreach (Transform tree in _trees.transform)
         {
             int randomTree = Random.Range(0, _planetSO.Trees.Count);
@@ -47,6 +62,11 @@ public class PlanetController : MonoBehaviour, IInitialize<PlanetSO>
     {
         foreach (Transform stone in _stones.transform)
         {
+            stone.gameObject.SetActive(false);
+        }
+
+        foreach (Transform stone in _stones.transform)
+        {
             int randomStone = Random.Range(0, _planetSO.Stones.Count);
             stone.GetComponent<IInitialize<ItemSO>>()?.Initialize(_planetSO.Stones[randomStone]);
         }
@@ -54,6 +74,8 @@ public class PlanetController : MonoBehaviour, IInitialize<PlanetSO>
 
     private void InitializePlayer()
     {
+        if (_player != null) _player = null;
+
         _player = Instantiate(_playerPrefab, _playerSpawnPosition.position, Quaternion.identity);
         GameController.Instance.SetFollowerToVirtualCamera(_player.transform);
         _player.GetComponent<IInitialize>()?.Initialize();
@@ -61,12 +83,22 @@ public class PlanetController : MonoBehaviour, IInitialize<PlanetSO>
 
     private void InitializeEnemy()
     {
+        foreach (Transform enemy in _enemy.transform)
+        {
+            enemy.gameObject.SetActive(false);
+        }
+
         _enemy.GetComponent<IInitialize<ItemSO>>()?.Initialize(_planetSO.Enemy);
         _enemy.GetComponent<IInitialize<Transform>>().Initialize(_player.transform);
     }
 
     private void InitializeMerchant()
     {
+        foreach (Transform merchant in _merchant.transform)
+        {
+            merchant.gameObject.SetActive(false);
+        }
+
         int randomMerchant = Random.Range(0, _merchant.transform.childCount);
         _merchant.transform.GetChild(randomMerchant).GetComponent<IInitialize<MerchantSO>>()?.Initialize(_planetSO.Merchant);
         _merchant.transform.GetChild(randomMerchant).GetComponent<ISetable<GameObject>>()?.SetData(_merchantInventory);
